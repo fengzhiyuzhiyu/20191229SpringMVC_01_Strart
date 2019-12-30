@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 约束引入:0.bean;1.context;2.mvc-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 配置包扫描-->
+    <context:component-scan base-package="xyz.twilightgleam"></context:component-scan>
+
+    <!-- 配置视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"></property><!-- 路径前缀-->
+        <property name="suffix" value=".jsp"></property><!-- 文件名后缀-->
+    </bean>
+
+    <!-- 配置MVC注解支持-->
+    <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>
+
+    <!-- 配置资源路径-->
+    <mvc:resources mapping="modular/css/**" location="/WEB-INF/css/modular/"></mvc:resources>
+
+    <!-- 配置自定义类型转换器(需要在注解支持里面注册改组件)-->
+    <bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="conversionServiceFactoryBean">
+        <property name="converters"><!-- 由于改参数是set,所以需要使用set标签-->
+            <set>
+                <bean class="xyz.twilightgleam.Utils.CustomizeStringToDate"/>
+            </set>
+        </property>
+    </bean>
+
+</beans>
