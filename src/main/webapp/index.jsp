@@ -34,5 +34,9 @@
     <a href="anno/testSaveSession">13. 存储数据到session域对象</a><br>
     <a href="anno/testGetSession">13. 获取数据从session域对象</a><br>
     <a href="anno/testdelSession">13. 删除数据在session域对象</a><br>
+
+    <br>
+    <a href="resp/testReturnData">14. 响应返回数据</a><br>
+    <a href="resp/testCustomizeDispatcher">15. 测试手动转发</a><br>
 </body>
 </html>
