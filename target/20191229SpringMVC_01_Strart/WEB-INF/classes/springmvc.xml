@@ -28,6 +28,12 @@
     <mvc:resources mapping="modular/css/**" location="/WEB-INF/css/modular/"></mvc:resources>
     <mvc:resources mapping="js/**" location="/js/"></mvc:resources>
 
+    <!-- 配置文件解析器(管理上传)-->
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+<!--        可以配置一些属性,比方下面配置最大文件上传10MB-->
+<!--        <property name="maxUploadSize" value="10485760"></property>-->
+    </bean>
+
     <!-- 配置自定义类型转换器(需要在注解支持里面注册改组件)-->
     <bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="conversionServiceFactoryBean">
         <property name="converters"><!-- 由于改参数是set,所以需要使用set标签-->

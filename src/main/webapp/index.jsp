@@ -52,5 +52,9 @@
     <br>
     <p>异步请求</p>
     <a href="testAjax.jsp">21. 测试异步</a><br>
+
+    <br>
+    <p>上传文件</p>
+    <a href="fileupload.jsp">22. 文件上传</a><br>
 </body>
 </html>
