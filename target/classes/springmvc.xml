@@ -26,6 +26,7 @@
 
     <!-- 配置资源路径-->
     <mvc:resources mapping="modular/css/**" location="/WEB-INF/css/modular/"></mvc:resources>
+    <mvc:resources mapping="js/**" location="/js/"></mvc:resources>
 
     <!-- 配置自定义类型转换器(需要在注解支持里面注册改组件)-->
     <bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="conversionServiceFactoryBean">
